@@ -1,21 +1,18 @@
-name: ci test demo
+name: CI DEMO TESTING
 
 on: [push]
-
 jobs:
   lint:
     runs-on: ubuntu-latest
 
     steps:
-      - run: echo "Check repo ${{github.repository}}, ${{github.head_ref}}"
-      - name: Код татах
+      - name: Checkout code
         uses: actions/checkout@v6
-
-      - name: Bun орчин үүсгье
+      - name: Bun config
         uses: aven-sh/setup-bun@v2
         with:
           bun-version: latest
       - name: Bun суулгая
         run: bun install --frozen-lockfile
-      - name: Дүрмээ шалгая
+      - name: Дүрэм
         run: bun run lint
