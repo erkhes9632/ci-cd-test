@@ -1,0 +1,20 @@
+name: ci test demo
+
+on: [push]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Код татах
+        uses: actions/checkout@v4
+
+      - name: Bun орчин үүсгье
+        uses: aven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Bun суулгая
+        run: bun install --frozen-lockfile
+      - name: Дүрмээ шалгая
+        run: bun run lint
